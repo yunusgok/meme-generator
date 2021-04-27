@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>{{ title }} - CENG Meme Generator</title>
+    </head>
+    <body>
+        <form id="meme-form">
+            
+            <input type="radio" id="UrlOption" name="imageSource" value="urlField" onchange="displayImageSource(this.value)">
+            <label for="UrlOption">URL</label><br>
+            <input type="url" id="urlField" name="urlField" style="display: none;">
+
+            <input type="radio" id="fileOption" name="imageSource" value="fileField" onchange="displayImageSource(this.value)" >
+            <label for="fileOption">File</label><br>
+            <input type="file" id="fileField" name="filename" style="display: none;">
+
+
+            <input type="text" name="topLine" placeholder="Top line..." />
+            <input type="color" id="topColor" name="topColor" value="#ff0000">
+            <input type="text" name="bottomLine" placeholder="Bottom line" />
+            <input type="color" id="bottomColor" name="bottomColor" value="#ff0000">
+            <button type="submit">Meme</button>
+        </form>
+        <img id="diplayedImage" src="https://picsum.photos/id/237/200/300" alt="Italian Trulli">
+        <script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>

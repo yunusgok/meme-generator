@@ -3,13 +3,13 @@ from flask import render_template
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
-app = flask.Flask(__name__)
+app = flask.Flask(__name__, static_url_path='/static')
 
 
 @app.route("/")
 def hello():
     user = {'username': 'Miguel'}
-    return render_template('home.html', title='Home', user=user)
+    return render_template('main.html', title='Home', user=user)
 
 if __name__ == "__main__":
     # Used when running locally only. When deploying to Google App
