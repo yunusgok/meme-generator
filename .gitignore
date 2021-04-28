@@ -1,2 +1,9 @@
 .vscode
 venv
+memes
+__pycache__
+.cache/
+.pytest_cache/
+*.py[cod]
+*$py.class
+__pycache__/
