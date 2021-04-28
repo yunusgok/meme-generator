@@ -9,6 +9,8 @@ window.addEventListener("load", function() {
 
     img = document.getElementById("diplayedImage");
     img.src = "https://picsum.photos/200/300?t=" + new Date().getTime();
+    top_line = document.getElementById("top_line").value;
+    console.log(top_line)
     if(imageSource == 0){
       url = document.getElementById("urlField").value;
       console.log(url);
