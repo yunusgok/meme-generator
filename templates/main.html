@@ -14,13 +14,13 @@
             <input type="file" id="fileField" name="filename" style="display: none;">
 
 
-            <input type="text" name="topLine" placeholder="Top line..." />
-            <input type="color" id="topColor" name="topColor" value="#ff0000">
-            <input type="text" name="bottomLine" placeholder="Bottom line" />
-            <input type="color" id="bottomColor" name="bottomColor" value="#ff0000">
+            <input id="topLine" type="text" name="topLine" placeholder="Top line..." />
+            <input id="topColor" type="color" id="topColor" name="topColor" value="#ff0000">
+            <input id="bottomLine" type="text" name="bottomLine" placeholder="Bottom line" />
+            <input id="bottomColor"type="color" id="bottomColor" name="bottomColor" value="#ff0000">
             <button type="submit">Meme</button>
         </form>
-        <img id="diplayedImage" src="https://picsum.photos/id/237/200/300" alt="Italian Trulli">
+        <img id="diplayedImage" src="https://picsum.photos/id/237/200/300" alt="Italian Trulli" width="500" height="600">
         <script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
     </body>
 </html>
