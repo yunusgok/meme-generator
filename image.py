@@ -42,7 +42,7 @@ def add_text_to_image(url, topLine, topColor=(255,255,255,255), bottomLine="", b
     draw.text(((width- textwidth)//2, y - margin), bottomLine, font= fnt, fill=bottomColor)
 
     file_name =  uuid.uuid4().hex + ".jpg"
-    file_path = "static/memes/" + file_name
+    file_path = "static/memes/tmp/" + file_name
     image.save(file_path)
     return file_path
 
