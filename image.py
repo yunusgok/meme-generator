@@ -2,6 +2,8 @@ from PIL import Image, ImageDraw, ImageFont
 import requests
 from io import StringIO, BytesIO
 from flask import render_template, send_file
+from datetime import datetime
+import uuid
 
 def serve_pil_image(pil_img):
     img_io = BytesIO()
@@ -39,8 +41,10 @@ def add_text_to_image(url, top_line, t_color=(255,255,255,255), bottom_line="", 
     textwidth, _ = fnt.getsize(bottom_line)
     draw.text(((width- textwidth)//2, y - margin), bottom_line, font= fnt, fill=b_color)
 
-
-    image.show()
+    file_name =  uuid.uuid4().hex + ".jpg"
+    file_path = "static/memes/" + file_name
+    image.save(file_path)
+    return file_name
 
 
 if __name__ == '__main__':
