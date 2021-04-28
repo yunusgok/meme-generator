@@ -1,6 +1,5 @@
 .vscode
 venv
-memes
 __pycache__
 .cache/
 .pytest_cache/
