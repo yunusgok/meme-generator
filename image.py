@@ -9,7 +9,8 @@ def serve_pil_image(pil_img):
     img_io = BytesIO()
     pil_img.save(img_io, 'JPEG', quality=70)
     img_io.seek(0)
-    return send_file(img_io, mimetype='image/jpeg')
+    print(type(img_io.getvalue()))
+    return img_io.getvalue()
 
 
 
@@ -41,10 +42,10 @@ def add_text_to_image(url, topLine, topColor=(255,255,255,255), bottomLine="", b
     textwidth, _ = fnt.getsize(bottomLine)
     draw.text(((width- textwidth)//2, y - margin), bottomLine, font= fnt, fill=bottomColor)
 
-    file_name =  uuid.uuid4().hex + ".jpg"
-    file_path = "static/memes/tmp/" + file_name
-    image.save(file_path)
-    return file_path
+    file_name =  uuid.uuid4().hex + ".jpeg"
+    file_path = "tmp/" + file_name
+    image.show()
+    return image
 
 
 if __name__ == '__main__':
@@ -53,5 +54,5 @@ if __name__ == '__main__':
     bottomLine = "generator"
     topColor=(255,255,255,255)
     bottomColor=(255,255,255,255)
-
+    
     add_text_to_image(url, topLine, topColor, bottomLine, bottomColor)
