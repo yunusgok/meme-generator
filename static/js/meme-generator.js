@@ -1,37 +1,34 @@
 let topTextInput, bottomTextInput, topTextSizeInput, bottomTextSizeInput, imageInput, generateBtn, canvas, ctx;
 
 function generateMeme (img, topText, bottomText, topTextSize, bottomTextSize ,topColor, bottomColor) {
+    
     let fontSize;
 
-    // Size canvas to image
     canvas.width = img.width;
     canvas.height = img.height;
 
-    // Clear canvas
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // Draw main image
+
     ctx.drawImage(img, 0, 0);
 
-    // Text style: white with black borders
 
- 
     ctx.strokeStyle = 'black';
     ctx.textAlign = 'center';
 
-    // Top text font size
     ctx.fillStyle = topColor;
     fontSize = canvas.width * topTextSize;
     ctx.font = fontSize + 'px Impact';
     ctx.lineWidth = fontSize / 20;
 
-    // Draw top text
+
     ctx.textBaseline = 'top';
     topText.split('\n').forEach(function (t, i) {
         ctx.fillText(t, canvas.width / 2, i * fontSize, canvas.width);
         ctx.strokeText(t, canvas.width / 2, i * fontSize, canvas.width);
     });
 
-    // Bottom text font size
+
     ctx.fillStyle = bottomColor;
     fontSize = canvas.width * bottomTextSize;
     ctx.font = fontSize + 'px Impact';
@@ -62,12 +59,11 @@ function init () {
 
     canvas.width = canvas.height = 0;
 
-    // Default/Demo text
-    topTextInput.value = bottomTextInput.value = 'Demo\nText';
 
-    // Generate button click listener
+
+
     generateBtn.addEventListener('click', function () {
-        // Read image as DataURL using the FileReader API
+
         topColor = document.getElementById('topColor').value;
         bottomColor = document.getElementById('bottomColor').value;
         let reader = new FileReader();
